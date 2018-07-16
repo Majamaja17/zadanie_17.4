@@ -3,6 +3,10 @@ const app = express();
 
 app.use(express.static('assets'));
 
+app.use(function (req, res, next) {
+    res.status(404).send('Wybacz, nie mogliśmy odnaleźć tego, czego żądasz!')
+});
+
 app.get('/', (req, res) => {
     res.sendFile('/index.html');
 });
